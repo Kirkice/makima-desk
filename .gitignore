@@ -1,0 +1,43 @@
+# .NET / Avalonia build output
+[Bb]in/
+[Oo]bj/
+[Aa]rtifacts/
+/release/
+/publish/
+/installer/output/
+.avalonia-build-tasks/
+
+# Local IDE settings
+.vs/
+.idea/
+.vscode/
+*.user
+*.suo
+*.sln.docstates
+*.DotSettings.user
+
+# Test and coverage output
+TestResults/
+coverage/
+*.coverage
+*.coveragexml
+
+# Generated distribution packages
+*.msi
+*.msix
+*.msixbundle
+*.wixpdb
+*.dmg
+*.pkg
+*.app/
+*.tar.gz
+*.zip
+
+# OS and temporary files
+.DS_Store
+._*
+Thumbs.db
+Desktop.ini
+*.log
+*.tmp
+*.bak

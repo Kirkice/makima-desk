@@ -1,0 +1,77 @@
+<Window xmlns="https://github.com/avaloniaui"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ xmlns:local="using:Petal"
+ x:Class="Petal.MainWindow" Width="350" Height="180" CanResize="False"
+ Title="Petal" SystemDecorations="None" Background="Transparent"
+ TransparencyLevelHint="Transparent" Topmost="True" ShowInTaskbar="False">
+ <Window.Styles>
+  <Style Selector="Button">
+   <Setter Property="Width" Value="21"/><Setter Property="Height" Value="21"/>
+   <Setter Property="MinHeight" Value="0"/><Setter Property="MinWidth" Value="0"/>
+   <Setter Property="Padding" Value="0"/><Setter Property="Margin" Value="2,0"/>
+   <Setter Property="FontSize" Value="12"/><Setter Property="CornerRadius" Value="11"/>
+   <Setter Property="Background" Value="#50494456"/><Setter Property="Foreground" Value="#B2ABBF"/>
+   <Setter Property="BorderThickness" Value="0"/><Setter Property="HorizontalContentAlignment" Value="Center"/>
+  </Style>
+ </Window.Styles>
+ <Border CornerRadius="27" Background="#B218171D" BorderBrush="#386F667E" BorderThickness="1">
+  <Grid Margin="10,8" RowDefinitions="25,5,*,17">
+   <Grid Grid.Row="0">
+    <Border Background="Transparent" Margin="0,0,78,0" PointerPressed="DragHeader" Cursor="SizeAll">
+     <Canvas IsHitTestVisible="False">
+      <Ellipse Width="16" Height="16" Fill="#C968799A" Canvas.Left="3" Canvas.Top="4"/>
+      <Ellipse Width="12" Height="12" Fill="#D18574A0" Canvas.Left="16" Canvas.Top="9"/>
+      <Ellipse Width="8" Height="8" Fill="#D9998DB1" Canvas.Left="29" Canvas.Top="2"/>
+     </Canvas>
+    </Border>
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+     <Button x:Name="RefreshButton" Content="↻" Click="RefreshClicked"/>
+     <Button Content="–" Click="HideClicked"/>
+     <Button Content="×" Click="QuitClicked"/>
+    </StackPanel>
+   </Grid>
+   <Grid Grid.Row="2" ColumnDefinitions="130,8,*">
+    <Grid Grid.Column="0" RowDefinitions="*,5,*">
+     <Border CornerRadius="17" Background="#6C312F39" BorderBrush="#297D738D" BorderThickness="1">
+      <StackPanel Margin="9,3">
+       <StackPanel Orientation="Horizontal">
+        <TextBlock Text="• $" Foreground="#AA94AE" FontSize="12" VerticalAlignment="Center" Margin="0,0,4,0"/>
+        <TextBlock x:Name="GlobalValue" Text="—" FontSize="18" FontWeight="SemiBold" Foreground="#E5E0EA"/>
+       </StackPanel>
+       <StackPanel Orientation="Horizontal">
+        <TextBlock Text="/oz" Foreground="#817A8D" FontSize="9" Margin="12,0,8,0"/>
+        <TextBlock x:Name="GlobalChange" Text="—" Foreground="#AA94AE" FontSize="9"/>
+       </StackPanel>
+      </StackPanel>
+     </Border>
+     <Border Grid.Row="2" CornerRadius="17" Background="#6C312F39" BorderBrush="#297D738D" BorderThickness="1">
+      <StackPanel Margin="9,3">
+       <StackPanel Orientation="Horizontal">
+        <TextBlock Text="• ¥" Foreground="#8C9FC3" FontSize="12" VerticalAlignment="Center" Margin="0,0,4,0"/>
+        <TextBlock x:Name="LocalValue" Text="—" FontSize="18" FontWeight="SemiBold" Foreground="#E5E0EA"/>
+       </StackPanel>
+       <StackPanel Orientation="Horizontal">
+        <TextBlock Text="/g" Foreground="#817A8D" FontSize="9" Margin="12,0,8,0"/>
+        <TextBlock x:Name="LocalChange" Text="—" Foreground="#8C9FC3" FontSize="9"/>
+       </StackPanel>
+      </StackPanel>
+     </Border>
+    </Grid>
+    <Border Grid.Column="2" CornerRadius="20" Background="#6C312F39" BorderBrush="#297D738D" BorderThickness="1" Padding="9">
+     <Grid>
+      <local:Sparkline x:Name="Chart"/>
+      <TextBlock x:Name="HighLabel" HorizontalAlignment="Right" VerticalAlignment="Top" Foreground="#817A8D" FontSize="7"/>
+      <TextBlock x:Name="LowLabel" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="#817A8D" FontSize="7"/>
+     </Grid>
+    </Border>
+   </Grid>
+   <Grid Grid.Row="3" Margin="2,4,2,0">
+    <StackPanel Orientation="Horizontal">
+     <Ellipse x:Name="StatusDot" Width="5" Height="5" Fill="#8C79A9" Margin="0,0,5,0"/>
+     <TextBlock x:Name="UpdateTime" Text="···" Foreground="#817A8D" FontSize="8"/>
+    </StackPanel>
+    <TextBlock x:Name="FxValue" HorizontalAlignment="Right" Foreground="#817A8D" FontSize="8"/>
+   </Grid>
+  </Grid>
+ </Border>
+</Window>
